@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="animate.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -29,7 +30,7 @@
 
 <section id="reflexion" class="animate__animated animate__fadeInUp">
   <div class="reflexion-box">
-    <h2 class="reflexion-title">✨ Una nueva etapa ✨</h2>
+    <h2 class="reflexion-title estrella">✨ Una nueva etapa ✨</h2>
     <div class="reflexion-text">
       <p>
         Un día como hoy mis ojos vieron el mundo y con esfuerzo profundo a caminar aprendí.
@@ -50,66 +51,104 @@
 
 <section id="ceremonia" class="ceremonia-section">
   <div class="ceremonia-box animate__animated animate__fadeInUp">
-    <h2>✨ Ceremonia ✨</h2>
+    
+    <!-- Icono principal -->
+    <div class="ceremonia-icon">
+      <i class="fas fa-frog"></i> <!-- 🐸 Sapito -->
+    </div>
+
+    <!-- Título mágico -->
+    <h2><span class="estrella">✨</span> Ceremonia <span class="estrella">✨</span></h2>
+    
+    <!-- Detalles -->
     <div class="ceremonia-detalles">
       <p><i class="fas fa-map-marker-alt"></i> <strong>Salón San Agustín</strong>, San Joaquín</p>
       <p><i class="fas fa-clock"></i> <strong>8:00 PM</strong></p>
     </div>
-    <button class="btn">
-      <a 
-      href="https://www.google.com/maps/place/Salón+San+Agustín+San+Joaquín" 
-      target="_blank" 
-      class="btn-mapa btn">
-      <i class="fas fa-location-arrow"></i> Cómo llegar
-      </a>
-    </button>
+    
+    <!-- Botón -->
+    <a href="https://maps.app.goo.gl/QSBtcUdMFiBoDPBV6" target="_blank" class="btn">
+      <i class="fas fa-map-marked-alt"></i> Cómo llegar
+    </a>
+
   </div>
 </section>
 
 
-<section id="galeria">
-  <h2>Galería</h2>
-  <div class="portada">
+<section class="galeria">
+  <h2 class="estrellas">✨Galería✨</h2>
+  <div class="galeria-foto">
     <img src="img/foto_2.jpg" alt="Imagen de portada">
   </div>
 </section>
 
 
-<section id="cuento">
-  <p>En un pantano encantado donde los sueños susurran...</p>
-</section>
+<!-- Cuento -->
+  <section id="cuento">
+    <p>En un pantano encantado donde los sueños susurran...</p>
+  </section>
 
+  <!-- Dress Code -->
 <section id="dresscode">
-  <h3>Dress Code: Negro</h3>
+  <h3><i class="fa-solid fa-user-tie"></i> Dress Code: Negro</h3>
 </section>
 
-<!-- <section id="musica">
-  <h3>Música</h3>
-  <a href="#" class="btn">Spotify Playlist</a>
-</section> -->
+
+<!-- RSVP -->
+<section id="rsvp">
+  <div class="rsvp-box">
+    <h3><i class="fa-solid fa-check-circle"></i> Confirma tu asistencia</h3>
+    <p>Para mí es muy importante que confirmes tu asistencia antes del 15 de febrero de 2025.</p>
+    <a href="#">Confirmar asistencia</a>
+  </div>
+</section>
+
+
 <audio id="bg-music" loop>
   <source src="audio/evangeline.mpeg" type="audio/mpeg">
 </audio>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const music = document.getElementById("bg-music");
-  function startMusic() {
-    music.play();
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("scroll", startMusic);
-  }
-  document.addEventListener("click", startMusic);
-  document.addEventListener("scroll", startMusic);
-});
+  document.addEventListener("DOMContentLoaded", () => {
+    const music = document.getElementById("bg-music");
+    function startMusic() {
+      music.play();
+      document.removeEventListener("click", startMusic);
+      document.removeEventListener("scroll", startMusic);
+    }
+    document.addEventListener("click", startMusic);
+    document.addEventListener("scroll", startMusic);
+  });
 </script>
 
-<section id="rsvp">
-  <h3>Confirma tu asistencia</h3>
-  <iframe src="[LINK_FORMULARIO]" width="100%" height="600" frameborder="0"></iframe>
-</section>
+<script>
+  // Fecha objetivo: 6 de septiembre a las 8:00 PM
+  const fechaObjetivo = new Date("September 6, 2025 20:00:00").getTime();
 
-<!-- <a href="https://wa.link/..." class="floating-whatsapp">WhatsApp</a> -->
+  const actualizarContador = setInterval(() => {
+    const ahora = new Date().getTime();
+    const diferencia = fechaObjetivo - ahora;
+
+    // Cálculos de tiempo
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    // Insertar valores en el HTML
+    document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
+    document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
+    document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
+    document.getElementById("segundos").innerText = segundos < 10 ? "0" + segundos : segundos;
+
+    // Si la fecha ya pasó
+    if (diferencia < 0) {
+      clearInterval(actualizarContador);
+      document.querySelector(".contador").innerHTML = "<h2>¡El evento ha comenzado! 🎉</h2>";
+    }
+  }, 1000);
+</script>
+
 
 </body>
 </html>
