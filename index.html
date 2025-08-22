@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis XV – [Nombre]</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="portada">
+  <div class="overlay"></div>
+  <div class="contenido-portada">
+    <h2 class="subtitulo">MIS 15 AÑOS</h2>
+    <h1 class="nombre">Ana Sofía</h1>
+    <p class="fecha">23 - FEBRERO - 2025</p>
+    
+    <!-- Contador -->
+    <div class="contador">
+      <div><span id="dias">00</span><small>Días</small></div>
+      <div><span id="horas">00</span><small>Horas</small></div>
+      <div><span id="minutos">00</span><small>Minutos</small></div>
+      <div><span id="segundos">00</span><small>Segundos</small></div>
+    </div>
+  </div>
+</header>
+
+<section id="reflexion" class="animate__animated animate__fadeInUp">
+  <div class="reflexion-box">
+    <h2 class="reflexion-title">✨ Una nueva etapa ✨</h2>
+    <div class="reflexion-text">
+      <p>
+        Un día como hoy mis ojos vieron el mundo y con esfuerzo profundo a caminar aprendí.
+      </p>
+      <p>
+        Fueron pasando los años, fui una niña feliz, siempre estará el recuerdo de aquella etapa que viví.
+      </p>
+      <p>
+        Ahora ya no soy una niña, soy toda una mujer con una vida por delante y muchas cosas que aprender.
+      </p>
+      <p>
+        Tú que marcaste mi vida de una manera especial, quiero que seas partícipe y poder disfrutar juntos este día tan especial.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="ceremonia">
+  <h2>Ceremonia</h2>
+  <p>Salón San Agustín - san juaquin - 8:00 PM 
+  </p>
+  <button class="btn">Cómo llegar</button>
+</section>
+
+<section id="galeria">
+  <h2>Galería</h2>
+</section>
+
+<section id="cuento">
+  <p>En un pantano encantado donde los sueños susurran...</p>
+</section>
+
+<section id="dresscode">
+  <h3>Dress Code: Negro</h3>
+</section>
+
+<!-- <section id="musica">
+  <h3>Música</h3>
+  <a href="#" class="btn">Spotify Playlist</a>
+</section> -->
+<audio id="bg-music" loop>
+  <source src="evangeline.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const music = document.getElementById("bg-music");
+  function startMusic() {
+    music.play();
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("scroll", startMusic);
+  }
+  document.addEventListener("click", startMusic);
+  document.addEventListener("scroll", startMusic);
+});
+</script>
+
+<section id="rsvp">
+  <h3>Confirma tu asistencia</h3>
+  <iframe src="[LINK_FORMULARIO]" width="100%" height="600" frameborder="0"></iframe>
+</section>
+
+<!-- <a href="https://wa.link/..." class="floating-whatsapp">WhatsApp</a> -->
+
+</body>
+</html>

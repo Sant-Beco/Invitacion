@@ -1,0 +1,384 @@
+:root {
+  --fondo-claro: #FAF9F6;   /* Marfil */
+  --verde-suave: #50C878;   /* Verde esmeralda */
+  --dorado: #C9A227;        /* Dorado elegante */
+  --lavanda: #D8BFD8;       /* Toque mágico */
+  --verde-oscuro: #2E4F3E;  /* Contraste */
+}
+
+/* ====== PORTADA ====== */
+
+.portada {
+  position: relative;
+  height: 100vh;
+  background: url('img/foto.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--fondo-claro);
+}
+
+/* Overlay oscuro sutil para mejorar contraste */
+.portada .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45);
+}
+
+/* Contenido centrado */
+.contenido-portada {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+/* Subtítulo (ej: "Mis 15 Años") */
+.subtitulo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: var(--dorado); /* Dorado resalta sobre overlay */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Nombre protagonista */
+.nombre {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.8rem;
+  color: var(--fondo-claro); /* Blanco cálido */
+  margin: 20px 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* Mejor legibilidad */
+}
+
+/* Fecha */
+.fecha {
+  font-size: 1.3rem;
+  color: var(--lavanda); /* Toque mágico pastel */
+  letter-spacing: 1px;
+}
+
+/* ====== CONTADOR ====== */
+.contador {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.contador div {
+  background: rgba(255, 255, 255, 0.2); /* Más luminoso que antes */
+  padding: 18px 22px;
+  border-radius: 12px;
+  color: var(--fondo-claro);
+  min-width: 75px;
+  backdrop-filter: blur(6px); /* efecto elegante */
+}
+
+.contador span {
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: block;
+  color: var(--dorado);
+}
+
+.contador small {
+  font-size: 0.85rem;
+  color: var(--fondo-claro);
+}
+
+/* ====== Reflexion ====== */
+
+
+#reflexion {
+  background: #faf6f0; /* tono suave */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.reflexion-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.reflexion-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #6b4c35;
+  font-weight: bold;
+}
+
+.reflexion-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+
+
+/*tema oscuro*/
+
+/* :root {
+  --fondo: #0B1D0B;       
+  --verde: #2ECC71;       
+  --dorado: #FFD700;      
+  --perla: #F8F8F8;       
+  --texto: #E0E0E0;       
+}
+
+
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: "Playfair Display", serif; 
+  margin: 0;
+  padding: 0;
+}
+
+
+h1, h2, h3 {
+  color: var(--dorado);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+
+button {
+  background: linear-gradient(135deg, var(--verde), var(--dorado));
+  color: var(--fondo);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: var(--dorado);
+  color: var(--fondo);
+  box-shadow: 0 0 12px var(--verde);
+}
+
+
+.card {
+  background-color: rgba(255, 255, 255, 0.05); 
+  border: 1px solid rgba(255, 215, 0, 0.3);    
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+
+a {
+  color: var(--verde);
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  color: var(--dorado);
+} */
+
+/*fin de tema oscuros*/
+
+/* body { 
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif; 
+    color: #3A3A3A; 
+    background-color: #FDFBF7; 
+    background: linear-gradient(to bottom, #2E7D32, #A8E6A1);
+}
+    
+header { 
+    height: 100vh; 
+    background: url('img/foto.jpg') center/cover no-repeat; 
+    position: relative; 
+    color: #FFD700; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+header::after { 
+    content: ''; 
+    position: absolute; 
+    top:0; left:0; 
+    width: 100%; 
+    height:100%; 
+    background: rgba(0,0,0,0.4); 
+}
+
+.nombre {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 38px;
+    color: #FFD700; 
+}
+
+.btn { 
+    background: #2E7D32; 
+    color: #fff; 
+    padding:12px 20px; 
+    border:none; 
+    border-radius:10px; 
+    cursor:pointer; 
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #A8E6A1; 
+    color: #2E7D32;
+    border: 2px solid #FFD700; 
+}
+
+.floating-whatsapp { 
+    position: fixed; 
+    bottom:20px; 
+    right:20px; 
+    background:#25D366; 
+    padding:15px; 
+    border-radius:50%; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3); 
+}
+
+#reflexion {
+    background: linear-gradient(to bottom, #2E7D32, #A8E6A1); 
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+}
+
+#reflexion h2 {
+  font-family: 'Cinzel Decorative', serif; 
+  font-size: 2.5em;
+  color: #FFD700; 
+  margin-bottom: 20px;
+}
+
+#galeria {
+    height: 100vh; 
+    background: url('img/foto_2.jpg') center/cover no-repeat; 
+    position: relative; 
+    color: #fff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+.reflexion-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+} */
+
+
+
+/* body { 
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif; color: #fdfbf7; 
+}
+    
+header { 
+    height: 100vh; 
+    background: url('img/foto.jpg') center/cover no-repeat; 
+    position: relative; 
+    color: #fff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+header::after { 
+    content: ''; 
+    position: absolute; 
+    top:0; left:0; 
+    width: 100%; 
+    height:100%; 
+    background: rgba(0,0,0,0.5); 
+}
+
+header h1 { font-size: 3em; 
+    z-index:1; margin:0; 
+    padding: 40px;
+    font-size: 40px;
+}
+
+.nombre {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 38px;
+    color: #fdfbf7;
+}
+
+section { 
+    padding: 50px 20px; 
+}
+
+.btn { 
+    background: #6B8E23; 
+    color: #fff; 
+    padding:12px 20px; 
+    border:none; 
+    border-radius:5px; 
+    cursor:pointer; 
+}
+
+.floating-whatsapp { 
+    position: fixed; 
+    bottom:20px; 
+    right:20px; 
+    background:#32cd32; 
+    padding:15px; 
+    border-radius:50%; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3); 
+}
+
+#galeria {
+    height: 100vh; 
+    background: url('img/foto_2.jpg') center/cover no-repeat; 
+    position: relative; 
+    color: #fff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+
+#reflexion {
+    background: linear-gradient(to bottom, #0dce17, #a8e6a1); 
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+}
+
+#reflexion h2 {
+  font-family: 'Cinzel Decorative', serif; 
+  font-size: 2.5em;
+  color: #fdfbf7;
+  margin-bottom: 20px;
+}
+
+#reflexion p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3em;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: auto;
+}
+
+.reflexion-box {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+} */
