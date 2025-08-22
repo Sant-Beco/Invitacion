@@ -38,7 +38,7 @@
 .subtitulo {
   font-family: 'Cinzel Decorative', serif;
   font-size: 1.5rem;
-  color: var(--dorado); /* Dorado resalta sobre overlay */
+  color: var(--lavanda); /* Dorado resalta sobre overlay */
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -80,7 +80,7 @@
   font-size: 1.6rem;
   font-weight: bold;
   display: block;
-  color: var(--dorado);
+  color: var(--lavanda);
 }
 
 .contador small {
@@ -109,7 +109,7 @@
 .reflexion-title {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #6b4c35;
+  color: var(--verde-oscuro);
   font-weight: bold;
 }
 
@@ -120,6 +120,85 @@
   margin-bottom: 15px;
 }
 
+/* ====== ceremonia ====== */
+
+.ceremonia-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fdfcf7; /* fondo claro elegante */
+}
+
+.ceremonia-box {
+  background: #ffffff;
+  border: 2px solid #c3b091; /* borde dorado suave */
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.ceremonia-box h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: #356859; /* verde elegante */
+  margin-bottom: 20px;
+}
+
+.ceremonia-detalles p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #444;
+}
+
+.ceremonia-detalles i {
+  color: #c3b091; /* íconos dorados */
+  margin-right: 8px;
+}
+
+.btn {
+  background: #356859;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #285245;
+}
+
+/* ====== GALERIA ====== */
+
+#galeria {
+  text-align: center;
+  margin: 40px 0;
+}
+
+#galeria h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.portada {
+  width: 100%;
+  height: 400px; /* puedes ajustar la altura */
+  overflow: hidden;
+  border-radius: 15px; /* opcional, esquinas redondeadas */
+}
+
+.portada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* se adapta sin deformarse */
+  object-position: center; /* centra la parte más importante */
+  display: block;
+}
 
 
 /*tema oscuro*/
