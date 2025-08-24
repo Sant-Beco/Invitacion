@@ -33,6 +33,15 @@
   padding: 20px;
 }
 
+.corona-deco {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.corona-deco img {
+  width: 120px;
+  animation: brillo 2s infinite alternate;
+}
+
 /* Subtítulo (ej: "Mis 15 Años") */
 .subtitulo {
   font-family: 'Cinzel Decorative', serif;
@@ -135,44 +144,70 @@
   text-shadow: 0 0 8px rgba(201, 162, 39, 0.6);
 }
 
-
-
-
 /* ====== Reflexion ====== */
-
-
 #reflexion {
-  background: #faf6f0; /* tono suave */
-  padding: 60px 20px;
+  background: linear-gradient(135deg, #FAF9F6, #f3efe6); /* marfil suave degradado */
+  padding: 70px 20px;
   text-align: center;
+  position: relative;
 }
 
 .reflexion-box {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
   background: #fff;
-  padding: 30px 40px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+  border: 2px solid var(--dorado); /* toque dorado elegante */
+  position: relative;
 }
 
 .reflexion-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
   color: var(--verde-oscuro);
   font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  letter-spacing: 1px;
 }
 
 .reflexion-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #444;
-  margin-bottom: 15px;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 18px;
+  font-style: italic;
 }
 
-/* ====== ceremonia  ====== */
+/* adornos brillantes */
+#reflexion::before, 
+#reflexion::after {
+  content: "✨";
+  font-size: 2rem;
+  color: var(--dorado);
+  position: absolute;
+  animation: sparkle 2s infinite alternate;
+}
+
+#reflexion::before {
+  top: 20px;
+  left: 30px;
+}
+
+#reflexion::after {
+  bottom: 20px;
+  right: 30px;
+}
+
+@keyframes sparkle {
+  from { opacity: 0.5; transform: scale(0.9) rotate(0deg); }
+  to { opacity: 1; transform: scale(1.2) rotate(15deg); }
+}
+
 
 /* ====== Ceremonia ====== */
+
 .ceremonia-section {
   text-align: center;
   padding: 60px 20px;
@@ -184,7 +219,7 @@
 
 .ceremonia-box {
   background: #ffffff;
-  border: 2px solid #c3b091; /* dorado suave */
+  border: 2px solid var(--dorado); /* dorado suave */
   border-radius: 25px;
   padding: 40px 30px;
   max-width: 520px;
@@ -195,13 +230,24 @@
   animation: aparecer 1s ease-out;
 }
 
+
+
 /* Icono superior mágico */
-.ceremonia-icon {
-  font-size: 2.5rem;
-  color: var(--dorado);
-  margin-bottom: 15px;
-  animation: brillo 2s infinite alternate;
+.ceremonia-icon img {
+  width: 90px;
+  border: 3px solid var(--dorado);
+  border-radius: 50%;
+  padding: 10px;
+  background: #fffdf7;
+  animation: bounce 2s infinite;
 }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+
 
 /* Título */
 .ceremonia-box h2 {
@@ -286,10 +332,18 @@
 
 .galeria-foto {
   width: 100%;
-  height: 400px; /* puedes ajustar la altura */
+  height: 420px;
   overflow: hidden;
-  border-radius: 15px; /* opcional, esquinas redondeadas */
+  border-radius: 18px;
+  border: 3px solid var(--dorado); /* marco dorado */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+.galeria-foto:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}   
 
 .galeria-foto img {
   width: 100%;
@@ -299,28 +353,69 @@
   display: block;
 }
 
-/* Sección cuento */
+
+/* ====== CUENTO ====== */
 #cuento {
-  background: #faf3e0;
-  padding: 40px;
+  background: var(--fondo-claro);
+  padding: 60px 25px;
   text-align: center;
-  font-size: 1.2em;
-  font-style: italic;
-  border-bottom: 2px solid #e0c097;
+  position: relative;
 }
+
+.cuento-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fffdf8;
+  padding: 35px 45px;
+  border-radius: 18px;
+  border: 2px solid var(--dorado);
+  box-shadow: 0px 6px 16px rgba(0,0,0,0.1);
+  position: relative;
+  font-family: 'Merriweather', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.9;
+  color: #444;
+}
+
+.cuento-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: var(--verde-oscuro);
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 6px rgba(201, 162, 39, 0.3);
+}
+
+/* Estrellitas decorativas */
+.cuento-box::before, .cuento-box::after {
+  content: "✨";
+  position: absolute;
+  font-size: 1.6rem;
+  color: var(--dorado);
+  animation: brillar 2s infinite alternate;
+}
+.cuento-box::before { top: 15px; left: 20px; }
+.cuento-box::after { bottom: 15px; right: 25px; }
+
+@keyframes brillar {
+  from { opacity: 0.5; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
 
 /* Sección Dress Code */
 #dresscode {
-  background: var(--fondo-claro);   /* Marfil */
-  color: var(--verde-oscuro);       /* Texto en verde oscuro */
+  background: var(--fondo-claro);   /* Fondo marfil elegante */
+  color: var(--verde-oscuro);       /* Texto verde oscuro */
   text-align: center;
-  padding: 50px 20px;
-  border-top: 3px solid var(--dorado);  /* Línea elegante dorada */
+  padding: 60px 20px;
+  border-top: 3px solid var(--dorado);
   border-bottom: 3px solid var(--dorado);
+  position: relative;
 }
 
 #dresscode h3 {
-  font-size: 2em;          
+  font-size: 2.2em;          
   letter-spacing: 2px;
   display: flex;          
   align-items: center;    
@@ -330,12 +425,37 @@
 }
 
 #dresscode i {
-  font-size: 2.2em;  
-  color: var(--dorado);   /* Ícono en dorado elegante */
+  font-size: 2.4em;  
+  color: var(--dorado);   /* Ícono dorado */
 }
 
+/* Resaltar "Negro" */
 #dresscode h3 span {
-  color: var(--verde-suave);  /* Resalta la palabra "Negro" */
+  color: var(--verde-suave);
+  font-style: italic;
+  font-size: 1.1em;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(218, 165, 32, 0.1); /* Suave fondo dorado translúcido */
+}
+
+/* Detalle decorativo con pseudo-elementos */
+#dresscode::before,
+#dresscode::after {
+  content: "✦";
+  font-size: 1.5em;
+  color: var(--dorado);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#dresscode::before {
+  left: 15px;
+}
+
+#dresscode::after {
+  right: 15px;
 }
 
 
@@ -362,7 +482,7 @@
 
 .rsvp-box {
   background: white;
-  border: 3px solid var(--verde-suave);
+  border: 3px solid var(--dorado);
   border-radius: 20px;
   padding: 30px;
   max-width: 800px;
