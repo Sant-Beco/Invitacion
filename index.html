@@ -93,32 +93,81 @@
 </section>
 
 
-<!-- RSVP -->
+<!-- Sección RSVP -->
 <section id="rsvp">
   <div class="rsvp-box">
     <h3><i class="fa-solid fa-check-circle"></i> Confirma tu asistencia</h3>
-    <p>Para mí es muy importante que confirmes tu asistencia antes del 06 de septiembre de 2025.</p>
-    <a href="#">Confirmar asistencia</a>
+    <p>Es muy importante que confirmes tu asistencia antes del 06 de septiembre de 2025 💌</p>
+
+    <div class="form-container">
+      <iframe src="https://forms.gle/E9ACCBakKiyFwmEA8"
+              frameborder="0" marginheight="0" marginwidth="0">
+        Cargando…
+      </iframe>
+    </div>
   </div>
 </section>
 
 
-<audio id="bg-music" loop>
+<audio id="bg-music" preload="auto" loop>
   <source src="audio/evangeline.mpeg" type="audio/mpeg">
 </audio>
+
+<button id="music-btn" style="position:fixed; bottom:20px; right:20px; z-index:9999; 
+  background:#111; color:#fff; border:none; padding:10px 15px; border-radius:12px; cursor:pointer;">
+  <span class="nota-musica">🎵</span>
+</button>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("bg-music");
-    function startMusic() {
-      music.play();
-      document.removeEventListener("click", startMusic);
-      document.removeEventListener("scroll", startMusic);
+    const musicBtn = document.getElementById("music-btn");
+
+    music.volume = 0; // empieza en silencio (para hacer fade-in)
+
+    // Intento de reproducción inmediata
+    music.play().then(() => {
+      fadeIn(music); 
+      musicBtn.style.display = "none"; // oculta el botón si ya funciona
+    }).catch(() => {
+      // Si falla, muestra el botón y escucha interacciones
+      musicBtn.style.display = "block";
+
+      function enableAudio() {
+        music.play().then(() => {
+          fadeIn(music);
+          musicBtn.style.display = "none";
+        }).catch(err => console.warn("Error al reproducir música:", err));
+
+        document.removeEventListener("click", enableAudio);
+        document.removeEventListener("scroll", enableAudio);
+        document.removeEventListener("keydown", enableAudio);
+        document.removeEventListener("touchstart", enableAudio);
+      }
+
+      musicBtn.addEventListener("click", enableAudio);
+      document.addEventListener("click", enableAudio);
+      document.addEventListener("scroll", enableAudio);
+      document.addEventListener("keydown", enableAudio);
+      document.addEventListener("touchstart", enableAudio); // soporte móvil
+    });
+
+    // Función para subir volumen suave
+    function fadeIn(audio) {
+      let vol = 0;
+      const fade = setInterval(() => {
+        if (vol < 0.7) {
+          vol += 0.05;
+          audio.volume = vol.toFixed(2);
+        } else {
+          clearInterval(fade);
+        }
+      }, 200);
     }
-    document.addEventListener("click", startMusic);
-    document.addEventListener("scroll", startMusic);
   });
 </script>
+
+
 
 <script>
   // Fecha objetivo: 6 de septiembre a las 8:00 PM
