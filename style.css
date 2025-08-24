@@ -18,6 +18,8 @@
   color: var(--fondo-claro);
 }
 
+
+
 /* Overlay oscuro sutil para mejorar contraste */
 .portada .overlay {
   position: absolute;
@@ -58,6 +60,7 @@
   color: var(--fondo-claro); /* Blanco cálido */
   margin: 20px 0;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* Mejor legibilidad */
+  animation: fadeInDown 2s ease;
 }
 
 /* Fecha */
@@ -65,6 +68,16 @@
   font-size: 1.3rem;
   color: var(--fondo-claro); /* Toque mágico pastel */
   letter-spacing: 1px;
+  animation: fadeInUp 2s ease 0.5s;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ====== CONTADOR ====== */
@@ -143,6 +156,8 @@
   color: var(--dorado);
   text-shadow: 0 0 8px rgba(201, 162, 39, 0.6);
 }
+
+
 
 /* ====== Reflexion ====== */
 #reflexion {
@@ -503,4 +518,109 @@
 .nota-musica {
   font-size: 2rem; /* ajusta el tamaño */
   color: var(--dorado); /* usa tu dorado elegante */
+}
+
+
+
+/* ====== FLUID & MOBILE FIRST TWEAKS ====== */
+
+/* Tipografía fluida (reduce necesidad de muchos breakpoints) */
+.nombre         { font-size: clamp(1.8rem, 6vw, 3.8rem); line-height: 1.12; text-wrap: balance; }
+.subtitulo      { font-size: clamp(1rem, 2.5vw, 1.5rem); letter-spacing: clamp(1px, 0.5vw, 3px); text-wrap: balance; }
+.fecha          { font-size: clamp(0.95rem, 1.8vw, 1.3rem); }
+
+.ceremonia-box h2,
+.galeria h2,
+.cuento-title   { font-size: clamp(1.6rem, 3.5vw, 2.4rem); text-wrap: balance; }
+
+/* Mejor altura segura en móviles (barra de URL) */
+.portada { height: auto; min-height: 100vh; }
+@supports (height: 100svh) {
+  .portada { min-height: 100svh; }
+}
+
+/* Pequeñas mejoras globales */
+img, iframe { max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ====== BREAKPOINTS ====== */
+
+/* Tablets y móviles grandes */
+@media (max-width: 768px) {
+  /* Portada: un poco más de overlay para contraste y mejor recorte */
+  .portada { background-position: center 35%; }
+  .portada .overlay { background: rgba(0,0,0,0.55); }
+
+  .contenido-portada { padding: 24px 18px; }
+  .corona-deco img { width: 96px; }
+
+  /* Contador: 2 columnas auto-iguales */
+  .contador { flex-wrap: wrap; gap: 10px; padding: 0 8px; }
+  .contador div { 
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+    padding: 12px 10px;
+  }
+  .contador span   { font-size: 1.4rem; }
+  .contador small  { font-size: 0.78rem; }
+
+  /* Cajas más compactas */
+  .reflexion-box,
+  .cuento-box,
+  .rsvp-box { padding: 22px; margin: 0 16px; }
+
+  .galeria-foto { height: 260px; border-width: 2px; }
+
+  .ceremonia-section { padding: 46px 16px; }
+  .ceremonia-box { padding: 26px 20px; margin: 0 16px; }
+  .ceremonia-icon img { width: 74px; }
+
+  /* Botón: ancho cómodo para el pulgar */
+  .btn { width: 100%; max-width: 340px; }
+
+  /* Dress code */
+  #dresscode h3 { 
+    font-size: 1.7em; 
+    flex-direction: column; 
+    gap: 8px; 
+    line-height: 1.2;
+  }
+
+  /* Form */
+  .form-container iframe { height: 460px; }
+
+  /* Botón música con safe-area para notch/gestos */
+  #music-btn {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+    right:  calc(env(safe-area-inset-right,  0px) + 12px);
+    padding: 10px 12px;
+  }
+  .nota-musica { font-size: 1.6rem; }
+}
+
+/* Móviles pequeños */
+@media (max-width: 420px) {
+  .portada { background-position: center 28%; }
+
+  .corona-deco img { width: 82px; }
+
+  .galeria-foto { height: 190px; }
+
+  /* Contador todavía más compacto */
+  .contador span   { font-size: 1.25rem; }
+  .contador small  { font-size: 0.7rem; }
+
+  /* Form más corto para evitar scroll excesivo */
+  .form-container iframe { height: 380px; }
+
+  /* Reduce sombras/animaciones de tarjetas para suavidad en móviles chicos */
+  .ceremonia-box,
+  .galeria-foto,
+  .cuento-box,
+  .rsvp-box { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+}
+
+/* Accesibilidad: si el usuario prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
