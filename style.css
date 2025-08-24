@@ -3,7 +3,11 @@
   --verde-suave: #50C878;   /* Verde esmeralda */
   --dorado: #C9A227;        /* Dorado elegante */
   --verde-oscuro: #2E4F3E;  /* Contraste */
+   --verde-muy-claro: #F4FBF7; /* Verde pálido (nuevo fondo) */
 }
+
+/* Aplica el fondo a las secciones */
+
 
 /* ====== PORTADA ====== */
 
@@ -165,7 +169,7 @@
 
 /* ====== Reflexion ====== */
 #reflexion {
-  background: linear-gradient(135deg, #FAF9F6, #f3efe6); /* marfil suave degradado */
+  background: var(--fondo-claro);
   padding: 70px 20px;
   text-align: center;
   position: relative;
@@ -183,12 +187,11 @@
 }
 
 .reflexion-title {
-  font-size: 2.2rem;
-  margin-bottom: 25px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.4rem;
   color: var(--verde-oscuro);
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-  letter-spacing: 1px;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 5px rgba(201, 162, 39, 0.3);
 }
 
 .reflexion-text p {
@@ -230,10 +233,7 @@
 .ceremonia-section {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.7), 
-    rgba(255, 255, 255, 0.9)
-  ), url('fondo-flores.png') center/cover no-repeat; /* opcional: decoración */
+  background: var(--fondo-claro);
 }
 
 .ceremonia-box {
@@ -338,7 +338,8 @@
 /* ====== GALERIA ====== */
 .galeria {
   text-align: center;
-  margin: 40px 0;
+  background: var(--fondo-claro);
+  
 }
 
 .galeria h2 {
@@ -525,6 +526,14 @@
 }
 
 
+.reflexion-box,
+.cuento-box,
+.ceremonia-box,
+.rsvp-box {
+  background: var(--verde-muy-claro); /* Verde claro de la paleta */
+}
+
+
 /* ====== FLUID & MOBILE FIRST TWEAKS ====== */
 
 /* Tipografía fluida (reduce necesidad de muchos breakpoints) */
@@ -599,6 +608,27 @@ img, iframe { max-width: 100%; }
     padding: 10px 12px;
   }
   .nota-musica { font-size: 1.6rem; }
+
+    .contador {
+    gap: 12px;
+  }
+
+  .contador div {
+    width: 40%;  /* 2 por fila */
+    padding: 15px;
+  }
+
+  .contador span {
+    font-size: 1.6rem;
+  }
+
+  .contador small {
+    font-size: 0.75rem;
+  }
+
+  .reflexion-title {
+  font-size: 1.6rem;
+}
 }
 
 /* Móviles pequeños */
@@ -621,9 +651,20 @@ img, iframe { max-width: 100%; }
   .galeria-foto,
   .cuento-box,
   .rsvp-box { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+
+  .reflexion-title {
+  font-size: 1.6rem;
 }
+}
+
+
 
 /* Accesibilidad: si el usuario prefiere menos movimiento */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+
+
+
+
